@@ -1,7 +1,6 @@
 export type ModuleType =
   | "pflicht"
   | "wahl"
-  | "projekt"
   | "thesis";
 
 export type Module = {

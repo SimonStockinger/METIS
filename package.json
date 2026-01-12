@@ -1,7 +1,7 @@
 {
-  "name": "study-planner",
+  "name": "METIS",
   "private": true,
-"homepage": "https://SimonStockinger.github.io/study-planner",  
+"homepage": "https://SimonStockinger.github.io/METIS/",  
   "version": "0.0.0",
   "type": "module",
   "scripts": {

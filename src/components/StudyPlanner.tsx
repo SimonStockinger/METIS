@@ -77,9 +77,11 @@ export function StudyPlanner() {
     e.target.value = "";
   };
 
+
+
   return (
     <div>
-      <h1>Study Planner</h1>
+      <h1>METIS</h1>
     <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginBottom: "16px" }}>
         <input type="file" accept="application/json" onChange={handleFileChange} />
           <button onClick={() => exportStudyPlan(state)}>Plan als JSON speichern</button>
@@ -112,7 +114,6 @@ export function StudyPlanner() {
         <select value={moduleType} onChange={(e) => setModuleType(e.target.value as ModuleType)}>
           <option value="pflicht">Pflicht</option>
           <option value="wahl">Wahl</option>
-          <option value="projekt">Projekt</option>
           <option value="thesis">Thesis</option>
         </select>
         <select value={selectedSemesterId} onChange={(e) => setSelectedSemesterId(e.target.value)}>

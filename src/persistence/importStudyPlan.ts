@@ -5,7 +5,7 @@ export async function importStudyPlan(file: File): Promise<StudyPlanState> {
   const data = JSON.parse(text);
 
   if (!data.plan) {
-    throw new Error("Ungültige Study-Plan-Datei");
+    throw new Error("Ungültige Studienplan Datei");
   }
 
   return data.plan as StudyPlanState;
