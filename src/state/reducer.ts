@@ -31,63 +31,62 @@ export function studyPlanReducer(
     }
 
     case "ADD_MODULE": {
-  const { module, semesterId, category } = action;
-
-  return {
-    ...state,
-    modules: {
-      ...state.modules,
-      [module.id]: module
-    },
-    semesters: state.semesters.map((s) =>
-      s.id === semesterId
-        ? {
-            ...s,
-            modulesByCategory: {
-              ...s.modulesByCategory,
-              [category]: [...(s.modulesByCategory[category] ?? []), module.id]
-            }
-          }
-        : s
-    )
-  };
-}
-
-
-    case "MOVE_MODULE": {
-  const { moduleId, to } = action;
-
-  if (!to.semesterId || !to.category) return state;
-
-  return {
-    ...state,
-    semesters: state.semesters.map((s) => {
-      const cleanedModulesByCategory = Object.fromEntries(
-        Object.entries(s.modulesByCategory).map(([cat, ids]) => [
-          cat,
-          ids.filter((id) => id !== moduleId)
-        ])
-      );
-
-      if (s.id === to.semesterId) {
-        cleanedModulesByCategory[to.category] = [
-          ...(cleanedModulesByCategory[to.category] ?? []),
-          moduleId
-        ];
-      }
+      const { module, semesterId, category } = action;
 
       return {
-        ...s,
-        modulesByCategory: cleanedModulesByCategory
+        ...state,
+        modules: {
+          ...state.modules,
+        [module.id]: module
+        },
+        semesters: state.semesters.map((s) =>
+          s.id === semesterId
+            ? {
+                ...s,
+                modulesByCategory: {
+                  ...s.modulesByCategory,
+                  [category]: [...(s.modulesByCategory[category] ?? []), module.id]
+                }
+              }
+            : s
+          )
       };
-    })
-  };
-}
+    }
 
-    case "LOAD_STUDY_PLAN":
-      return action.state;
 
-    default:
-      return state;
+  case "MOVE_MODULE": {
+    const { moduleId, to } = action;
+
+    if (!to.semesterId || !to.category) return state;
+
+    return {
+      ...state,
+      semesters: state.semesters.map((s) => {
+        const cleanedModulesByCategory = Object.fromEntries(
+          Object.entries(s.modulesByCategory).map(([cat, ids]) => [
+            cat,
+            ids.filter((id) => id !== moduleId)
+          ])
+        );
+
+        if (s.id === to.semesterId) {
+          cleanedModulesByCategory[to.category] = [
+            ...(cleanedModulesByCategory[to.category] ?? []),
+            moduleId
+          ];
+        }
+
+        return {
+          ...s,
+          modulesByCategory: cleanedModulesByCategory
+        };
+      })
+    };
+  }
+
+  case "LOAD_STUDY_PLAN":
+    return action.state;
+  default:
+    return state;
   }
 }
