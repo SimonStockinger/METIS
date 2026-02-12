@@ -92,32 +92,24 @@ export const initialState: StudyPlanState = {
       id: "m-prog",
       name: "Programmieren",
       ects: 5,
-      type: "pflicht",
-      prerequisites: [],
       category: "Praktische Informatik"
     },
     "m-gi": {
       id: "m-gi",
       name: "Grundbegriffe der Informatik",
       ects: 6,
-      type: "pflicht",
-      prerequisites: [],
       category: "Theoretische Informatik"
     },
     "m-analysis1": {
       id: "m-analysis1",
       name: "Analysis I",
       ects: 9,
-      type: "pflicht",
-      prerequisites: [],
       category: "Mathematik"
     },
     "m-la1": {
       id: "m-la1",
       name: "Lineare Algebra I",
       ects: 9,
-      type: "pflicht",
-      prerequisites: [],
       category: "Mathematik"
     },
 
@@ -126,40 +118,30 @@ export const initialState: StudyPlanState = {
       id: "m-algo1",
       name: "Algorithmen I",
       ects: 6,
-      type: "pflicht",
-      prerequisites: ["m-prog"],
       category: "Theoretische Informatik"
     },
     "m-st1": {
       id: "m-st1",
       name: "Softwaretechnik I",
       ects: 6,
-      type: "pflicht",
-      prerequisites: [],
       category: "Praktische Informatik"
     },
     "m-analysis2": {
       id: "m-analysis2",
       name: "Analysis II",
       ects: 6,
-      type: "pflicht",
-      prerequisites: ["m-analysis1"],
       category: "Mathematik"
     },
     "m-la2": {
       id: "m-la2",
       name: "Lineare Algebra II",
       ects: 5,
-      type: "pflicht",
-      prerequisites: ["m-la1"],
       category: "Mathematik"
     },
     "m-dt": {
       id: "m-dt",
       name: "Digitaltechnik & Entwurfsverfahren",
       ects: 6,
-      type: "pflicht",
-      prerequisites: [],
       category: "Technische Informatik"
     },
 
@@ -168,40 +150,30 @@ export const initialState: StudyPlanState = {
       id: "m-tgi",
       name: "Theoretische Grundlagen der Informatik",
       ects: 6,
-      type: "pflicht",
-      prerequisites: [],
       category: "Theoretische Informatik"
     },
     "m-pse": {
       id: "m-pse",
       name: "Praxis der Softwareentwicklung",
       ects: 7,
-      type: "pflicht",
-      prerequisites: ["m-st1"],
       category: "Praktische Informatik"
     },
     "m-bs": {
       id: "m-bs",
       name: "Betriebssysteme",
       ects: 6,
-      type: "pflicht",
-      prerequisites: [],
       category: "Praktische Informatik"
     },
     "m-ws": {
       id: "m-ws",
       name: "Wahrscheinlichkeitstheorie & Statistik",
       ects: 4.5,
-      type: "pflicht",
-      prerequisites: [],
       category: "Mathematik"
     },
     "m-ro": {
       id: "m-ro",
       name: "Rechnerorganisation",
       ects: 6,
-      type: "pflicht",
-      prerequisites: [],
       category: "Technische Informatik"
     },
 
@@ -210,24 +182,18 @@ export const initialState: StudyPlanState = {
       id: "m-kd",
       name: "Kommunikation & Datenhaltung",
       ects: 8,
-      type: "pflicht",
-      prerequisites: [],
       category: "Praktische Informatik"
     },
     "m-sec": {
       id: "m-sec",
       name: "Informationssicherheit",
       ects: 5,
-      type: "pflicht",
-      prerequisites: [],
       category: "Praktische Informatik"
     },
     "m-num": {
       id: "m-num",
       name: "Numerische Mathematik",
       ects: 4.5,
-      type: "pflicht",
-      prerequisites: [],
       category: "Mathematik"
     },
 
@@ -236,16 +202,12 @@ export const initialState: StudyPlanState = {
       id: "m-pp",
       name: "Programmierparadigmen",
       ects: 6,
-      type: "pflicht",
-      prerequisites: [],
       category: "Praktische Informatik"
     },
     "m-ai": {
       id: "m-ai",
       name: "Grundlagen der Künstlichen Intelligenz",
       ects: 5,
-      type: "pflicht",
-      prerequisites: [],
       category: "Praktische Informatik"
     },
 
@@ -254,8 +216,6 @@ export const initialState: StudyPlanState = {
       id: "m-bachelor",
       name: "Bachelorarbeit",
       ects: 15,
-      type: "pflicht",
-      prerequisites: [],
       category: "Praktische Informatik"
     }
   }

@@ -19,9 +19,6 @@ value={form.ects}
 onChange={(e) => onChange("ects", Number(e.target.value))}
 />
 <select value={form.type} onChange={(e) => onChange("type", e.target.value as ModuleType)}>
-<option value="pflicht">Pflicht</option>
-<option value="wahl">Wahl</option>
-<option value="thesis">Thesis</option>
 </select>
 <select value={form.semesterId} onChange={(e) => onChange("semesterId", e.target.value)}>
 <option value="">Semester wählen</option>

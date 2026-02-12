@@ -6,14 +6,12 @@ import { SemesterGrid } from "@/view/components/SemesterGrid";
 import { exportStudyPlan } from "@/controller/persistence/exportStudyPlan";
 import { importStudyPlan } from "@/controller/persistence/importStudyPlan";
 import type { DragEndEvent } from "@dnd-kit/core";
-import type { ModuleType } from "@/model/module";
 
 export function StudyPlanner() {
   const [state, dispatch] = useReducer(studyPlanReducer, initialState);
   const [newCategoryName, setNewCategoryName] = useState("");
   const [moduleName, setModuleName] = useState("");
   const [moduleECTS, setModuleECTS] = useState<number>(0);
-  const [moduleType, setModuleType] = useState<ModuleType>("pflicht");
   const [selectedSemesterId, setSelectedSemesterId] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
 
@@ -57,7 +55,6 @@ export function StudyPlanner() {
 
     setModuleName("");
     setModuleECTS(0);
-    setModuleType("pflicht");
     setSelectedSemesterId("");
     setSelectedCategory("");
   };
