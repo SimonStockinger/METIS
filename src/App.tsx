@@ -1,4 +1,4 @@
-import { StudyPlanner } from "./components/StudyPlanner";
+import { StudyPlanner } from "@/view/components/StudyPlanner";
 
 function App() {
   return <StudyPlanner />;

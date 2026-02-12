@@ -1,4 +1,4 @@
-import type { StudyPlanState } from "../domain/studyPlan";
+import type { StudyPlanState } from "@/model/studyPlan";
 
 export async function importStudyPlan(file: File): Promise<StudyPlanState> {
   const text = await file.text();

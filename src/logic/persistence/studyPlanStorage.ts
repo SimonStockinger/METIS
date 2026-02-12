@@ -1,4 +1,4 @@
-import type { StudyPlanState } from "../domain/studyPlan";
+import type { StudyPlanState } from "@/model/studyPlan";
 
 const STORAGE_KEY = "study-plan";
 

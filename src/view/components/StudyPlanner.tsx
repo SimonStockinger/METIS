@@ -1,12 +1,12 @@
 import { useReducer, useState } from "react";
 import { DndContext } from "@dnd-kit/core";
-import { studyPlanReducer } from "../state/reducer";
-import { initialState } from "../state/initialState";
-import { SemesterGrid } from "./SemesterGrid";
-import { exportStudyPlan } from "../persistence/exportStudyPlan";
-import { importStudyPlan } from "../persistence/importStudyPlan";
+import { studyPlanReducer } from "@/state/reducer";
+import { initialState } from "@/state/initialState";
+import { SemesterGrid } from "@/view/components/SemesterGrid";
+import { exportStudyPlan } from "@/logic/persistence/exportStudyPlan";
+import { importStudyPlan } from "@/logic//persistence/importStudyPlan";
 import type { DragEndEvent } from "@dnd-kit/core";
-import type { ModuleType } from "../domain/module";
+import type { ModuleType } from "@/model/module";
 
 export function StudyPlanner() {
   const [state, dispatch] = useReducer(studyPlanReducer, initialState);

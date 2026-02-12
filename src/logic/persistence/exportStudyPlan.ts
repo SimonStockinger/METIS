@@ -1,4 +1,4 @@
-import type { StudyPlanState } from "../domain/studyPlan";
+import type { StudyPlanState } from "@/model/studyPlan";
 
 export function exportStudyPlan(state: StudyPlanState) {
   const payload = {
