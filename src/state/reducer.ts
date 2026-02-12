@@ -1,4 +1,4 @@
-import type { StudyPlanState } from "../domain/studyPlan";
+import type { StudyPlanState } from "@/model/studyPlan";
 import type { Action } from "./actions";
 
 export function studyPlanReducer(

@@ -1,5 +1,5 @@
 import { useDraggable } from "@dnd-kit/core";
-import type { Module } from "../domain/module";
+import type { Module } from "@/model/module";
 
 type Props = {
   module: Module;

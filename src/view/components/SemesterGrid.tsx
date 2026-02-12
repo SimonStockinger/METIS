@@ -1,6 +1,6 @@
 import { useDroppable } from "@dnd-kit/core";
-import type { Semester } from "../domain/semester";
-import type { Module } from "../domain/module";
+import type { Semester } from "@/model/semester";
+import type { Module } from "@/model/module";
 import { ModuleCard } from "./ModuleCard";
 
 type Props = {

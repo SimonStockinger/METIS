@@ -1,5 +1,5 @@
-import { ModuleType } from "../domain/types";
-import { AddModuleFormState } from "../hooks/useAddModuleForm";
+import { ModuleType } from "@/model/module";
+import { AddModuleFormState } from "@/hooks/useAddModuleForm";
 
 type Props = {
     form: AddModuleFormState;

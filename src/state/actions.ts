@@ -1,5 +1,5 @@
-import type { StudyPlanState } from "../domain/studyPlan";
-import type { Module } from "../domain/module";
+import type { StudyPlanState } from "@/model/studyPlan";
+import type { Module } from "@/model/module";
 
 export type Action =
   | { type: "ADD_SEMESTER" }

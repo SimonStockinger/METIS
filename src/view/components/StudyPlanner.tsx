@@ -3,15 +3,14 @@ import { DndContext } from "@dnd-kit/core";
 import { studyPlanReducer } from "@/state/reducer";
 import { initialState } from "@/state/initialState";
 import { SemesterGrid } from "@/view/components/SemesterGrid";
-import { exportStudyPlan } from "@/logic/persistence/exportStudyPlan";
-import { importStudyPlan } from "@/logic//persistence/importStudyPlan";
+import { exportStudyPlan } from "@/controller/persistence/exportStudyPlan";
+import { importStudyPlan } from "@/controller/persistence/importStudyPlan";
 import type { DragEndEvent } from "@dnd-kit/core";
 import type { ModuleType } from "@/model/module";
 
 export function StudyPlanner() {
   const [state, dispatch] = useReducer(studyPlanReducer, initialState);
   const [newCategoryName, setNewCategoryName] = useState("");
-
   const [moduleName, setModuleName] = useState("");
   const [moduleECTS, setModuleECTS] = useState<number>(0);
   const [moduleType, setModuleType] = useState<ModuleType>("pflicht");
