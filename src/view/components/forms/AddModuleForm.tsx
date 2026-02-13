@@ -37,4 +37,4 @@ export function AddModuleForm({ form, semesters, categories, onChange, onSubmit 
     </div>
 );
 }
-*/
+*

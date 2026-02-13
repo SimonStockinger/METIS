@@ -22,12 +22,15 @@ export function SemesterGrid({ semesters, modules, categories, dispatch }: Props
         style={{
           "--cols": categories.length
         } as React.CSSProperties}
-      >
-        <div className="semester-label">Semester</div>
+      >          
+      <div className="semester-label">
+          Semester
+        </div>
+        
         {categories.map((cat) => (
           <div key={cat} className="category-header">{cat}</div>
         ))}
-        <div>Summe ECTS</div>
+        <div>ECTS</div>
       </div>
 
       <div className="semester-grid-rows"
@@ -65,7 +68,12 @@ export function SemesterGrid({ semesters, modules, categories, dispatch }: Props
             })}
 
             <div className="semester-cell">
-              {semesterECTS} ({cumulativeECTS})
+              <div>
+                {semesterECTS} 
+              </div>
+              <div>
+                &Sigma; {cumulativeECTS}
+              </div>
             </div>
           </div>
         );
@@ -73,13 +81,14 @@ export function SemesterGrid({ semesters, modules, categories, dispatch }: Props
         </div>
 
     </div>
-          <div className="semester-footer"
+
+    <div className="semester-footer"
             style={{"--cols": categories.length} as React.CSSProperties}>
         <div className="semester-grid-total">
           Gesamt: {cumulativeECTS} ECTS
         </div>
-      </div>
-      </>
+    </div>
+    </>
   );
 }
 
