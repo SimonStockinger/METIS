@@ -53,7 +53,28 @@ export function studyPlanReducer(
       };
     }
 
-  case "MOVE_MODULE": {
+    case "REMOVE_MODULE": {
+      const { moduleId } = action;
+
+      return {
+        ...state,
+        semesters: state.semesters.map((s) => {
+          const cleanedModulesByCategory = Object.fromEntries(
+            Object.entries(s.modulesByCategory).map(([cat, ids]) => [
+              cat,
+              ids.filter((id) => id !== moduleId)
+            ])
+          );
+
+          return {
+            ...s,
+            modulesByCategory: cleanedModulesByCategory
+          };
+      })
+      };
+    };
+
+    case "MOVE_MODULE": {
     const { moduleId, to } = action;
 
     if (!to.semesterId || !to.category) return state;

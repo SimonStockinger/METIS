@@ -156,6 +156,12 @@ body,
 }
 
 
+.delete-module-button button {
+  pointer-events: auto;
+  position: relative;
+  z-index: 5;
+}
+
 /* module card */
 
 .module-card {

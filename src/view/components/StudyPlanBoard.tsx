@@ -29,6 +29,7 @@ function StudyPlanBoard({state, dispatch}: StudyPlanBoardProbs) {
             semesters={state.semesters}
             modules={state.modules}
             categories={state.categories}
+            dispatch={dispatch}
             />
             </DndContext>
       </div>
