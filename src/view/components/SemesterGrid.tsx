@@ -34,7 +34,7 @@ export function SemesterGrid({ semesters, modules, categories, dispatch }: Props
               {cat.name}
             </div>
             <div>
-              {cat.credits}
+              {cat.credits} LP
             </div>
             </div>
         ))}

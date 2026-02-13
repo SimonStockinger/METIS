@@ -5,27 +5,31 @@
     "categories": [
       {
         "name": "Theoretische Informatik",
-        "credits": 42
+        "credits": "18"
       },
       {
         "name":  "Praktische Informatik",
-        "credits": 42
+        "credits": "48"
       },
       {
         "name": "Mathematik",
-        "credits": 42
+        "credits": "38 - 45"
+      },
+      {
+        "name": "Technische Informatik",
+        "credits": "12"
       },
       {
         "name": "Wahlbereich",
-        "credits": 42
+        "credits": "15 - 31"
       },
       {
         "name": "Ergänzungsfach",
-        "credits": 42
+        "credits": "12 - 21"
       },
       {
         "name": "Überfachliche Qualifikationen",
-        "credits": 42
+        "credits": "6"
       }
     ],
     "semesters": [
