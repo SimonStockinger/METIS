@@ -121,7 +121,6 @@ export function AddSemester({ dispatch }: AddSemesterProps) {
 };
 
 
-
 function StudyPlanBoardToolbar() {
   const [state, dispatch] = useReducer(studyPlanReducer, initialState);
 
@@ -133,6 +132,5 @@ function StudyPlanBoardToolbar() {
     </div>
   );
 }
-
 
 export default StudyPlanBoardToolbar;

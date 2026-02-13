@@ -13,16 +13,14 @@ export function SemesterGrid({ semesters, modules, categories }: Props) {
   let cumulativeECTS = 0;
 
   return (
-    <div className="semester-grid" style={{ width: "100%" }}>
+    <div className="semester-grid">
       <div
-        className="semester-row"
+        className="semester-grid-header"
         style={{
-          gridTemplateColumns: `180px repeat(${categories.length}, 1fr) 100px`,
-          fontWeight: 600,
-          background: "#f3f3f3",
-          borderBottom: "2px solid #ccc"
-        }}
+          "--cols": categories.length
+        } as React.CSSProperties}
       >
+
         <div className="semester-label">Semester</div>
         {categories.map((cat) => (
           <div key={cat} className="category-header">{cat}</div>
@@ -42,10 +40,9 @@ export function SemesterGrid({ semesters, modules, categories }: Props) {
           <div
             key={semester.id}
             className="semester-row"
-            style={{ gridTemplateColumns: `180px repeat(${categories.length}, 1fr) 100px` }}
+            style={{"--cols": categories.length} as React.CSSProperties}
           >
             <div className="semester-label">{semester.label}</div>
-
             {categories.map((cat) => {
               const moduleIds = semester.modulesByCategory[cat] ?? [];
               return (
@@ -58,24 +55,16 @@ export function SemesterGrid({ semesters, modules, categories }: Props) {
               );
             })}
 
-            <div className="semester-cell" style={{ fontWeight: 600, background: "#f9f9f9" }}>
+            <div className="semester-cell">
               {semesterECTS} ({cumulativeECTS})
             </div>
           </div>
         );
       })}
 
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: `180px repeat(${categories.length}, 1fr) 100px`,
-          fontWeight: 700,
-          background: "#eaeaea",
-          padding: "8px",
-          borderTop: "2px solid #ccc"
-        }}
-      >
-        <div style={{ gridColumn: `1 / span ${categories.length + 2}` }}>
+      <div className="semester-footer"
+            style={{"--cols": categories.length} as React.CSSProperties}>
+        <div className="semester-grid-total">
           Gesamt: {cumulativeECTS} ECTS
         </div>
       </div>

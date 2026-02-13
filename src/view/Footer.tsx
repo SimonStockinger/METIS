@@ -1,19 +1,20 @@
 function Footer() {
-    return(
-        <footer>
-            <hr></hr>
-            <p>
-                &copy; {new Date().getFullYear()} Simon Stockinger
-            </p>
-            <nav>
-                <ul>
-                    <li><a href="#"></a>Tutorial</li>
-                    <li><a href="wwww.https://github.com/simonstockinger/"></a>GtHub</li>
-                    <li><a href="#"></a>Contact</li>
-                </ul>
-            </nav>
-        </footer>
-    )
+  return (
+    <footer className="footer">
+      <hr />
+      <div className="footer-content">
+        <p>&copy; {new Date().getFullYear()} Simon Stockinger</p>
+
+        <nav>
+          <ul className="footer-links">
+            <li><a href="#">Tutorial</a></li>
+            <li><a href="https://github.com/simonstockinger/METIS" target="_blank">GitHub</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+  );
 }
 
 export default Footer;

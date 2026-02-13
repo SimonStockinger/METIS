@@ -1,6 +1,6 @@
 function Header() {
     return(
-        <header>
+        <header className="header">
             <h1>METIS</h1>
         </header>
     );

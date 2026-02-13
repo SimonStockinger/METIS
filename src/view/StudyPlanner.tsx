@@ -4,11 +4,13 @@ import StudyPlanBoard from "@/view/components/StudyPlanBoard";
 
 function StudyPlanner() {
   return(
-    <div>
+    <div className="study-planner">
       <StudyPlanTopToolbar />
       <hr></hr>
       <StudyPlanBoardToolbar />
-      <StudyPlanBoard />
+      <div className="board-wrapper"> 
+          <StudyPlanBoard />
+      </div>
     </div>
   );
 };

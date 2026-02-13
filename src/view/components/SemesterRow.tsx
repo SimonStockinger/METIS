@@ -19,10 +19,7 @@ function SemesterRow({ semester, modules, categories }: Props) {
   }, 0);
 
   return (
-    <div
-      className="semester-row"
-      style={{ gridTemplateColumns: `180px repeat(${categories.length}, 1fr) 100px` }}
-    >
+    <div className="semester-row">
       <div className="semester-label">{semester.label}</div>
 
       {categories.map((category) => {
@@ -38,10 +35,7 @@ function SemesterRow({ semester, modules, categories }: Props) {
         );
       })}
 
-      <div
-        className="semester-cell"
-        style={{ fontWeight: 600, background: "#f9f9f9", justifyContent: "center" }}
-      >
+      <div className="semester-cell">
         {semesterECTS} ECTS
       </div>
     </div>

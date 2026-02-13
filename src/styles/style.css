@@ -1,23 +1,129 @@
+/* GLOBAL */
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+/* APP LAYOUT */
+.app {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;                    
+  gap: 6px;
+  padding: 8px;
+  background: #f9f9f9;
+  overflow: hidden;
+}
+
+
+/* HEADER */
+.study-planner {
+  padding: 8px;
+  text-align: center;
+  background: #f0f0f0;
+  border-radius: 6px;
+  font-weight: 600;
+
+    overflow-y: auto;
+}
+
+/* BOARD */
+.board {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  min-height: 0;          
+  overflow-y: auto;
+  flex: 1 1 auto;         
+}
+
+
 .semester-grid {
   display: grid;
-  grid-auto-rows: auto;
+  grid-template-columns: 180px repeat(var(--cols), 1fr) 100px;
   width: 100%;
-  overflow-x: auto;
-  background: #f9f9f9;
-  padding: 8px;
-  gap: 4px;
+  height: 100%;
+  min-height: 0;       
+  overflow-y: auto;
+  flex: 1 1 auto;         
 }
 
 .semester-grid-header {
   display: grid;
-  grid-template-columns: 180px repeat(var(--category-count, 3), 1fr);
-  background: #eaeaea;
+  grid-template-columns: 180px repeat(var(--cols), 1fr) 100px;
   font-weight: 600;
   border-bottom: 2px solid #ccc;
   position: sticky;
   top: 0;
-  z-index: 10;
 }
+
+.semester-row {
+  display: grid;
+  grid-template-columns: 180px repeat(var(--cols), 1fr) 100px;
+  align-items: stretch;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.semester-row.header {
+  font-weight: 600;
+  background: #f3f3f3;
+  border-bottom: 2px solid #ccc;
+}
+
+.semester-footer > div{
+  display: grid;
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  font-weight: 700;
+  background: #eaeaea;
+  border-top: 2px solid #ccc;
+  grid-column: 1 / -1;
+  padding: 8px;
+}
+
+.semester-label {
+  padding: 8px;
+  border-right: 1px solid #ddd;
+}
+
+.category-header {
+  padding: 8px;
+  text-align: center;
+  border-right: 1px solid #ddd;
+}
+
+.semester-cell {
+  padding: 8px;
+  min-height: 60px;
+  border-right: 1px solid #eee;
+  background: #fff;
+  font-weight: 600;
+  background: "#f9f9f9";
+  justify-content: "center";
+}
+
+.semester-cell.is-over {
+  background: #e6f3ff;
+}
+
+/* GRID HEADER */
+
+
+
 
 .semester-label-header,
 .category-header {
@@ -27,12 +133,32 @@
   background: #f0f0f0;
 }
 
+
+/* ROWS */
 .semester-row {
-  display: grid;
-  grid-template-columns: 180px repeat(var(--category-count, 3), 1fr);
-  gap: 8px;
-  margin-bottom: 4px;
+  display: grid;              
   align-items: stretch;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.semester-label {
+  padding: 8px;
+  border-right: 1px solid #ddd;
+  font-weight: 600;
+}
+
+.semester-cell {
+  padding: 8px;
+  min-height: 60px;
+  border-right: 1px solid #eee;
+  background: #fff;
+  display: flex;              
+  flex-direction: column;
+  gap: 6px;
+}
+
+.semester-cell.is-over {
+  background: #e6f3ff;
 }
 
 .semester-label {
@@ -43,8 +169,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 4px;
 }
 
+/* CELLS */
 .semester-cell {
   padding: 8px;
   border: 1px solid #eee;
@@ -52,9 +180,10 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  background: #fff;
+  background: #ffffff;
   align-items: stretch;
   justify-content: flex-start;
+  min-height: 60px;
 }
 
 .semester-cell.is-over {
@@ -62,15 +191,68 @@
   border-color: #0080ff;
 }
 
+
+/* MODULE CARD */
+
 .module-card {
-  padding: 6px 10px;
+  padding: 4px 8px;
   border: 1px solid #bbb;
   background: #fdfdfd;
   border-radius: 6px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 2px;
+  font-size: 12px;
+  min-height: 40px;
+}
+
+
+/* FOOTER */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 20;
+  background: #f0f0f0;
+  padding: 16px 24px;
+}
+
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  gap: 16px;
+  padding: 0;
+  margin: 0;
+}
+
+.footer a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+html, body, #root {
   height: 100%;
 }
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+

@@ -22,7 +22,7 @@ function StudyPlanBoard() {
   };
 
     return(
-        <div>
+        <div className="board">
             <DndContext onDragEnd={handleDragEnd}>
             <SemesterGrid
             semesters={state.semesters}

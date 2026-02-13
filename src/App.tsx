@@ -4,11 +4,11 @@ import Footer from "@/view/Footer";
 
 function App() {
   return (
-    <>
+    <div className="app">
     <Header />
     <StudyPlanner />
     <Footer />
-    </>
+    </div>
   );
 }
 
