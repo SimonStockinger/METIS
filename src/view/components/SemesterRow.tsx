@@ -1,6 +1,6 @@
 import { useDroppable } from "@dnd-kit/core";
-import type { Semester } from "../domain/semester";
-import type { Module } from "../domain/module";
+import type { Semester } from "@/model/semester";
+import type { Module } from "@/model/module";
 import { ModuleCard } from "./ModuleCard";
 
 type Props = {
@@ -9,7 +9,7 @@ type Props = {
   categories: string[];
 };
 
-export function SemesterRow({ semester, modules, categories }: Props) {
+function SemesterRow({ semester, modules, categories }: Props) {
   const semesterECTS = categories.reduce((sum, category) => {
     const moduleIds = semester.modulesByCategory[category] ?? [];
     return (
@@ -71,3 +71,5 @@ function SemesterCell({ semesterId, category, modules }: CellProps) {
     </div>
   );
 }
+
+export default SemesterRow;

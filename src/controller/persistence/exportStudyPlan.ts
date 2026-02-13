@@ -1,6 +1,6 @@
 import type { StudyPlanState } from "@/model/studyPlan";
 
-export function exportStudyPlan(state: StudyPlanState) {
+function exportStudyPlan(state: StudyPlanState) {
   const payload = {
     version: 1,
     updatedAt: new Date().toISOString(),
@@ -19,3 +19,5 @@ export function exportStudyPlan(state: StudyPlanState) {
 
   URL.revokeObjectURL(url);
 }
+
+export default exportStudyPlan;

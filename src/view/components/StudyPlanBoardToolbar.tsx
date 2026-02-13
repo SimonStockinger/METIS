@@ -1,0 +1,95 @@
+import { useReducer, useState } from "react";
+import { studyPlanReducer } from "@/controller/state/reducer";
+import { initialState } from "@/controller/state/initialState";
+
+
+function StudyPlanBoardToolbar() {
+  const [state, dispatch] = useReducer(studyPlanReducer, initialState);
+  const [newCategoryName, setNewCategoryName] = useState("");
+  const [moduleName, setModuleName] = useState("");
+  const [moduleECTS, setModuleECTS] = useState<number>(0);
+  const [selectedSemesterId, setSelectedSemesterId] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("");
+
+  const addCategory = () => {
+    if (!newCategoryName.trim()) return;
+      dispatch({ type: "ADD_CATEGORY", category: newCategoryName.trim() });
+      setNewCategoryName("");
+  };
+
+  const handleAddModule = () => {
+      if (!moduleName || !selectedSemesterId || !selectedCategory) return;
+  
+      const id = `${moduleName}-${selectedSemesterId}-${selectedCategory}-${Date.now()}`;
+  
+      dispatch({
+        type: "ADD_MODULE",
+        module: {
+          id,
+          name: moduleName,
+          ects: moduleECTS,
+          category: selectedCategory
+        },
+        semesterId: selectedSemesterId,
+        category: selectedCategory
+      });
+  
+      setModuleName("");
+      setModuleECTS(0);
+      setSelectedSemesterId("");
+      setSelectedCategory("");
+  };
+
+    return(
+      <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginBottom: "16px" }}>
+        <input
+          type="text"
+          placeholder="Modul Name"
+          value={moduleName}
+          onChange={(e) => setModuleName(e.target.value)}
+        />
+
+        <input
+          type="number"
+          placeholder="ECTS"
+          value={moduleECTS}
+          onChange={(e) => setModuleECTS(Number(e.target.value))}
+        />
+
+        <select value={selectedSemesterId} onChange={(e) => setSelectedSemesterId(e.target.value)}>
+          <option value="">Semester wählen</option>
+          {state.semesters.map((sem) => (
+            <option key={sem.id} value={sem.id}>
+              {sem.label}
+            </option>
+          ))}
+
+        </select>
+        <select value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
+          <option value="">Kategorie wählen</option>
+          {state.categories.map((cat) => (
+            <option key={cat} value={cat}>
+              {cat}
+            </option>
+          ))}
+        </select>
+
+        <button onClick={() => dispatch({ type: "ADD_SEMESTER" })}>
+        Semester hinzufügen
+        </button>
+        <input
+            type="text"
+            placeholder="Neue Kategorie"
+            value={newCategoryName}
+            onChange={(e) => setNewCategoryName(e.target.value)}
+          />
+
+        <button onClick={addCategory}>Kategorie hinzufügen</button>
+
+        <button onClick={handleAddModule}>Modul hinzufügen</button>
+        <button onClick={() => dispatch({ type: "ADD_SEMESTER" })}></button>
+      </div>
+    );
+};
+
+export default StudyPlanBoardToolbar;
