@@ -14,6 +14,8 @@ Die Anwendung ermöglicht die Planung von Studienmodulen über mehrere Semester 
 ---
 In Progress
 
+---
+
 Lizenz
 
 MIT License
