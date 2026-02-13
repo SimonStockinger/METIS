@@ -1,20 +1,27 @@
 import { useReducer, useState } from "react";
 import { studyPlanReducer } from "@/controller/state/reducer";
-import initialState from "@/controller/state/initialState";
+import { initialState } from "@/controller/state/initialState";
+import type { ActionDispatch } from "react";
 import type { Action } from "@/controller/state/actions";
-import type { Dispatch } from "react";
+
+
+type StudyPlanBoardToolbarProbs = {
+  state: typeof initialState;
+  dispatch: any;
+};
+
 
 type AddModuleProps = {
   state: typeof initialState;
-  dispatch: Dispatch<Action>;
+  dispatch: any;
 };
 
   type AddCategoryProps = {
-  dispatch: Dispatch<Action>;
+  dispatch: any;
 };
 
 type AddSemesterProps = {
-  dispatch: Dispatch<Action>;
+  dispatch: any;
 };
 
 export function AddModule({ state, dispatch }: AddModuleProps) {
@@ -121,9 +128,7 @@ export function AddSemester({ dispatch }: AddSemesterProps) {
 };
 
 
-function StudyPlanBoardToolbar() {
-  const [state, dispatch] = useReducer(studyPlanReducer, initialState);
-
+function StudyPlanBoardToolbar({state, dispatch}: StudyPlanBoardToolbarProbs) {
   return (
     <div>
       <AddModule state={state} dispatch={dispatch} />

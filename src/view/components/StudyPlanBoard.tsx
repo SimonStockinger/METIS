@@ -1,13 +1,14 @@
-import { useReducer } from "react";
 import { DndContext } from "@dnd-kit/core";
-import { studyPlanReducer } from "@/controller/state/reducer";
-import initialState from "@/controller/state/initialState";
+import { initialState } from "@/controller/state/initialState";
 import { SemesterGrid } from "@/view/components/SemesterGrid";
 import type { DragEndEvent } from "@dnd-kit/core";
 
-function StudyPlanBoard() {
-  const [state, dispatch] = useReducer(studyPlanReducer, initialState);
+type StudyPlanBoardProbs = {
+  state: typeof initialState;
+  dispatch: any;
+};
 
+function StudyPlanBoard({state, dispatch}: StudyPlanBoardProbs) {
   const handleDragEnd = ({ active, over }: DragEndEvent) => {
     if (!active.data.current || !over?.data.current) return;
     const { moduleId, from } = active.data.current as any;

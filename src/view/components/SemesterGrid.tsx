@@ -67,9 +67,7 @@ export function SemesterGrid({ semesters, modules, categories }: Props) {
           </div>
         );
       })}
-
         </div>
-
 
     </div>
           <div className="semester-footer"

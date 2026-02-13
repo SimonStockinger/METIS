@@ -53,7 +53,6 @@ export function studyPlanReducer(
       };
     }
 
-
   case "MOVE_MODULE": {
     const { moduleId, to } = action;
 

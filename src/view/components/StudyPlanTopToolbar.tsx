@@ -1,12 +1,13 @@
 import exportStudyPlan from "@/controller/persistence/exportStudyPlan";
 import { importStudyPlan } from "@/controller/persistence/importStudyPlan";
-import { useReducer } from "react";
-import { studyPlanReducer } from "@/controller/state/reducer";
-import initialState from "@/controller/state/initialState";
+import { initialState } from "@/controller/state/initialState";
 
+type StudyPlanTopToolbarProbs = {
+  state: typeof initialState;
+  dispatch: any;
+};
 
-function StudyPlanTopToolbar() {
-    const [state, dispatch] = useReducer(studyPlanReducer, initialState);
+function StudyPlanTopToolbar({state, dispatch}: StudyPlanTopToolbarProbs) {
     const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
 

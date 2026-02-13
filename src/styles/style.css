@@ -29,17 +29,22 @@ body,
 
 
 /* HEADER */
+.header {
+  font-weight: 800;
+}
+
+
+/* STUDY PLANNER */
 .study-planner {
   padding: 8px;
   text-align: center;
   background: #f0f0f0;
   border-radius: 6px;
-  font-weight: 600;
   width: 100;
   height: 100%;
 }
 
-/* BOARD */
+/* board */
 .board {
   display: flex;
   flex-direction: column;
@@ -53,9 +58,6 @@ body,
   grid-template-columns: 180px repeat(var(--cols), 1fr) 100px;
   width: 100%;
   height: 100%;
-  min-height: 0;       
-  overflow-y: auto;
-  flex: 1;         
 }
 
 .semester-grid-header {
@@ -68,9 +70,11 @@ body,
 }
 
 .semester-grid-rows {
-  display: inline;
+  display: block;
   border-bottom: 2px solid #ccc;
+  min-height: 0;          
   overflow-y: auto;
+  height: 100%;
 }
 
 .semester-row {
@@ -104,7 +108,7 @@ body,
   border-right: 1px solid #ddd;
 }
 
-/* GRID HEADER */
+/* grid header */
 .semester-label-header,
 .category-header {
   padding: 8px;
@@ -114,7 +118,7 @@ body,
 }
 
 
-/* ROWS */
+/* rows */
 .semester-row {
   display: grid;              
   align-items: stretch;
@@ -152,7 +156,7 @@ body,
 }
 
 
-/* MODULE CARD */
+/* module card */
 
 .module-card {
   padding: 4px 8px;

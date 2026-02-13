@@ -3,6 +3,7 @@ import StudyPlanner from "@/view/StudyPlanner";
 import Footer from "@/view/Footer";
 
 function App() {
+  console.log("App()");
   return (
     <div className="app">
     <Header />
