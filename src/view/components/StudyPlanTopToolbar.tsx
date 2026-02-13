@@ -13,7 +13,7 @@ const templateModules = import.meta.glob(
 const templateEntries: { name: string; content: TemplateJSON }[] = Object.entries(templateModules).map(
   ([path, content]) => {
     const name = path.split("/").pop()?.replace(".json", "") ?? "";
-    return { name, content: content as TemplateJSON }; // Type Assertion
+    return { name, content: content as TemplateJSON };
   }
 );
 

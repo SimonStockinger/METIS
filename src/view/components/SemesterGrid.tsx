@@ -2,11 +2,12 @@ import { useDroppable } from "@dnd-kit/core";
 import type { Semester } from "@/model/semester";
 import type { Module } from "@/model/module";
 import { ModuleCard } from "./ModuleCard";
+import type { Category } from "@/model/category";
 
 type Props = {
   semesters: Semester[];
   modules: Record<string, Module>;
-  categories: string[];
+  categories: Category[];
   
   dispatch: any
 };
@@ -28,7 +29,14 @@ export function SemesterGrid({ semesters, modules, categories, dispatch }: Props
         </div>
         
         {categories.map((cat) => (
-          <div key={cat} className="category-header">{cat}</div>
+          <div key={cat.name} className="category-header">
+            <div>
+              {cat.name}
+            </div>
+            <div>
+              {cat.credits}
+            </div>
+            </div>
         ))}
         <div>ECTS</div>
       </div>
@@ -41,7 +49,7 @@ export function SemesterGrid({ semesters, modules, categories, dispatch }: Props
 
       {semesters.map((semester) => {
         const semesterECTS = categories.reduce((sum, cat) => {
-          const ids = semester.modulesByCategory[cat] ?? [];
+          const ids = semester.modulesByCategory[cat.name] ?? [];
           return sum + ids.reduce((modAcc, id) => modAcc + (modules[id]?.ects || 0), 0);
         }, 0);
 
@@ -55,10 +63,10 @@ export function SemesterGrid({ semesters, modules, categories, dispatch }: Props
           >
             <div className="semester-label">{semester.label}</div>
             {categories.map((cat) => {
-              const moduleIds = semester.modulesByCategory[cat] ?? [];
+              const moduleIds = semester.modulesByCategory[cat.name] ?? [];
               return (
                 <SemesterCell
-                  key={cat}
+                  key={cat.name}
                   semesterId={semester.id}
                   category={cat}
                   modules={moduleIds.map((id) => modules[id])}
@@ -94,10 +102,10 @@ export function SemesterGrid({ semesters, modules, categories, dispatch }: Props
 
 type CellProps = {
   semesterId: string;
-  category: string;
+  category: Category;
   modules: Module[];
-
-    dispatch: any
+  
+  dispatch: any
 
 };
 

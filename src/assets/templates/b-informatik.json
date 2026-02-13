@@ -1,15 +1,32 @@
 {
-  "version": 1,
+  "version": 2,
   "updatedAt": "2026-02-13T15:11:24.264Z",
   "plan": {
     "categories": [
-      "Theoretische Informatik",
-      "Praktische Informatik",
-      "Mathematik",
-      "Technische Informatik",
-      "Wahlbereich",
-      "Ergänzungsfach",
-      "Überfachliche Qualifikationen"
+      {
+        "name": "Theoretische Informatik",
+        "credits": 42
+      },
+      {
+        "name":  "Praktische Informatik",
+        "credits": 42
+      },
+      {
+        "name": "Mathematik",
+        "credits": 42
+      },
+      {
+        "name": "Wahlbereich",
+        "credits": 42
+      },
+      {
+        "name": "Ergänzungsfach",
+        "credits": 42
+      },
+      {
+        "name": "Überfachliche Qualifikationen",
+        "credits": 42
+      }
     ],
     "semesters": [
       {

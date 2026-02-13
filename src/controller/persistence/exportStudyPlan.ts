@@ -1,8 +1,11 @@
 import type { StudyPlanState } from "@/model/studyPlan";
 
+const JSON_VERSION = 1;
+
+
 function exportStudyPlan(state: StudyPlanState) {
   const payload = {
-    version: 1,
+    version: JSON_VERSION,
     updatedAt: new Date().toISOString(),
     plan: state
   };

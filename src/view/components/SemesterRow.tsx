@@ -2,18 +2,19 @@ import { useDroppable } from "@dnd-kit/core";
 import type { Semester } from "@/model/semester";
 import type { Module } from "@/model/module";
 import { ModuleCard } from "./ModuleCard";
+import type { Category } from "@/model/category";
 
 type Props = {
   semester: Semester;
   modules: Record<string, Module>;
-  categories: string[];
+  categories: Category[];
 
   dispatch: any
 };
 
 function SemesterRow({ semester, modules, categories, dispatch }: Props) {
   const semesterECTS = categories.reduce((sum, category) => {
-    const moduleIds = semester.modulesByCategory[category] ?? [];
+    const moduleIds = semester.modulesByCategory[category.name] ?? [];
     return (
       sum +
       moduleIds.reduce((modAcc, id) => modAcc + (modules[id]?.ects || 0), 0)
@@ -25,11 +26,11 @@ function SemesterRow({ semester, modules, categories, dispatch }: Props) {
       <div className="semester-label">{semester.label}</div>
 
       {categories.map((category) => {
-        const categoryModuleIds = semester.modulesByCategory[category] ?? [];
+        const categoryModuleIds = semester.modulesByCategory[category.name] ?? [];
         const categoryModules = categoryModuleIds.map((id) => modules[id]);
         return (
           <SemesterCell
-            key={category}
+            key={category.name}
             semesterId={semester.id}
             category={category}
             modules={categoryModules}
@@ -47,7 +48,7 @@ function SemesterRow({ semester, modules, categories, dispatch }: Props) {
 
 type CellProps = {
   semesterId: string;
-  category: string;
+  category: Category;
   modules: Module[];
 
   dispatch: any
