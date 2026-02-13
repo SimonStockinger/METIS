@@ -72,7 +72,7 @@ const handleTemplateChange = (name: string) => {
         <input type="file" accept="application/json" onChange={handleFileChange} />
       </div>
 
-      <div>
+      <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginBottom: "16px" }}>
         <button onClick={() => exportStudyPlan(state)}>Plan als JSON speichern</button>
       </div>
     </div>

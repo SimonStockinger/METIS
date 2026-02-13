@@ -192,9 +192,9 @@ button {
   border-radius: 6px;
   cursor: pointer;
   transition: background 0.2s ease, transform 0.1s ease;
-  align-self: center;           /* zentriert im Flex-Container */
-  max-width: 128rem;             /* begrenzt die Breite */
-  white-space: nowrap;          /* verhindert Zeilenumbruch */
+  align-self: center;          
+  max-width: 128rem;            
+  white-space: nowrap;         
 }
 
 button:hover {
@@ -233,9 +233,9 @@ select {
   border-radius: 6px;
   background-color: #fff;
   color: #333;
-  width: auto;                  /* nicht gestreckt */
-  max-width: 128rem;             /* max Größe */
-  align-self: center;           /* zentriert im Flex-Container */
+  width: auto;               
+  max-width: 128rem;            
+  align-self: center;           
   box-sizing: border-box;
 }
 
