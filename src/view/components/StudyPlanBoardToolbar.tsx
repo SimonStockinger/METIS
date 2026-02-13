@@ -1,8 +1,5 @@
-import { useReducer, useState } from "react";
-import { studyPlanReducer } from "@/controller/state/reducer";
+import { useState } from "react";
 import { initialState } from "@/controller/state/initialState";
-import type { ActionDispatch } from "react";
-import type { Action } from "@/controller/state/actions";
 
 
 type StudyPlanBoardToolbarProbs = {
