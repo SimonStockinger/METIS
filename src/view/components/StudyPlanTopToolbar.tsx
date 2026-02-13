@@ -1,8 +1,8 @@
 import exportStudyPlan from "@/controller/persistence/exportStudyPlan";
 import { importStudyPlan } from "@/controller/persistence/importStudyPlan";
-import { useReducer, useState } from "react";
+import { useReducer } from "react";
 import { studyPlanReducer } from "@/controller/state/reducer";
-import { initialState } from "@/controller/state/initialState";
+import initialState from "@/controller/state/initialState";
 
 
 function StudyPlanTopToolbar() {

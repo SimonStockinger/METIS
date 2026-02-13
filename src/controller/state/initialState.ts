@@ -1,6 +1,6 @@
 import type { StudyPlanState } from "@/model/studyPlan";
 
-export const initialState: StudyPlanState = {
+const initialState: StudyPlanState = {
   categories: [
     "Theoretische Informatik",
     "Praktische Informatik",
@@ -220,3 +220,6 @@ export const initialState: StudyPlanState = {
     }
   }
 };
+
+
+export default initialState;

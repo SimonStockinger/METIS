@@ -1,8 +1,9 @@
-import { useReducer, useState } from "react";
+import { useReducer } from "react";
 import { DndContext } from "@dnd-kit/core";
 import { studyPlanReducer } from "@/controller/state/reducer";
-import { initialState } from "@/controller/state/initialState";
+import initialState from "@/controller/state/initialState";
 import { SemesterGrid } from "@/view/components/SemesterGrid";
+import type { DragEndEvent } from "@dnd-kit/core";
 
 function StudyPlanBoard() {
   const [state, dispatch] = useReducer(studyPlanReducer, initialState);
@@ -31,6 +32,6 @@ function StudyPlanBoard() {
             </DndContext>
       </div>
     );
-}
+};
 
 export default StudyPlanBoard;

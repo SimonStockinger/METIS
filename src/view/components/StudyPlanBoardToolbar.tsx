@@ -1,21 +1,27 @@
 import { useReducer, useState } from "react";
 import { studyPlanReducer } from "@/controller/state/reducer";
-import { initialState } from "@/controller/state/initialState";
+import initialState from "@/controller/state/initialState";
+import type { Action } from "@/controller/state/actions";
+import type { Dispatch } from "react";
 
+type AddModuleProps = {
+  state: typeof initialState;
+  dispatch: Dispatch<Action>;
+};
 
-function StudyPlanBoardToolbar() {
-  const [state, dispatch] = useReducer(studyPlanReducer, initialState);
-  const [newCategoryName, setNewCategoryName] = useState("");
-  const [moduleName, setModuleName] = useState("");
-  const [moduleECTS, setModuleECTS] = useState<number>(0);
-  const [selectedSemesterId, setSelectedSemesterId] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("");
+  type AddCategoryProps = {
+  dispatch: Dispatch<Action>;
+};
 
-  const addCategory = () => {
-    if (!newCategoryName.trim()) return;
-      dispatch({ type: "ADD_CATEGORY", category: newCategoryName.trim() });
-      setNewCategoryName("");
-  };
+type AddSemesterProps = {
+  dispatch: Dispatch<Action>;
+};
+
+export function AddModule({ state, dispatch }: AddModuleProps) {
+const [moduleName, setModuleName] = useState("");
+const [moduleECTS, setModuleECTS] = useState<number>(0);
+const [selectedSemesterId, setSelectedSemesterId] = useState("");
+const [selectedCategory, setSelectedCategory] = useState("");
 
   const handleAddModule = () => {
       if (!moduleName || !selectedSemesterId || !selectedCategory) return;
@@ -40,9 +46,10 @@ function StudyPlanBoardToolbar() {
       setSelectedCategory("");
   };
 
-    return(
-      <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginBottom: "16px" }}>
-        <input
+
+  return(
+    <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginBottom: "16px" }}>
+          <input
           type="text"
           placeholder="Modul Name"
           value={moduleName}
@@ -74,22 +81,58 @@ function StudyPlanBoardToolbar() {
           ))}
         </select>
 
-        <button onClick={() => dispatch({ type: "ADD_SEMESTER" })}>
-        Semester hinzufügen
-        </button>
-        <input
+        <button onClick={handleAddModule}>Modul hinzufügen</button>
+        </div>
+  );
+};
+
+
+export function AddCategory({ dispatch }: AddCategoryProps) {
+    const [newCategoryName, setNewCategoryName] = useState("");
+
+    const addCategory = () => {
+    if (!newCategoryName.trim()) return;
+      dispatch({ type: "ADD_CATEGORY", category: newCategoryName.trim() });
+      setNewCategoryName("");
+  };
+
+
+  return(
+          <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginBottom: "16px" }}>
+                <input
             type="text"
             placeholder="Neue Kategorie"
             value={newCategoryName}
             onChange={(e) => setNewCategoryName(e.target.value)}
           />
-
         <button onClick={addCategory}>Kategorie hinzufügen</button>
-
-        <button onClick={handleAddModule}>Modul hinzufügen</button>
-        <button onClick={() => dispatch({ type: "ADD_SEMESTER" })}></button>
       </div>
-    );
+  );
+}
+
+export function AddSemester({ dispatch }: AddSemesterProps) {
+  return (
+  <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginBottom: "16px" }}>
+    <button onClick={() => dispatch({ type: "ADD_SEMESTER" })}>
+      Semester hinzufügen
+      </button>
+    </div>
+  );
 };
+
+
+
+function StudyPlanBoardToolbar() {
+  const [state, dispatch] = useReducer(studyPlanReducer, initialState);
+
+  return (
+    <div>
+      <AddModule state={state} dispatch={dispatch} />
+      <AddCategory dispatch={dispatch} />
+      <AddSemester dispatch={dispatch} />
+    </div>
+  );
+}
+
 
 export default StudyPlanBoardToolbar;
