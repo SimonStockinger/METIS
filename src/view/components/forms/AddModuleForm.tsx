@@ -1,3 +1,4 @@
+/*
 import type { AddModuleFormState } from "@/controller/state/addModuleFormState";
 
 type Props = {
@@ -36,3 +37,4 @@ export function AddModuleForm({ form, semesters, categories, onChange, onSubmit 
     </div>
 );
 }
+*/
