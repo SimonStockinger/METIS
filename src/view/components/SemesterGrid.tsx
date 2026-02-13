@@ -13,6 +13,7 @@ export function SemesterGrid({ semesters, modules, categories }: Props) {
   let cumulativeECTS = 0;
 
   return (
+    <>
     <div className="semester-grid">
       <div
         className="semester-grid-header"
@@ -20,13 +21,18 @@ export function SemesterGrid({ semesters, modules, categories }: Props) {
           "--cols": categories.length
         } as React.CSSProperties}
       >
-
         <div className="semester-label">Semester</div>
         {categories.map((cat) => (
           <div key={cat} className="category-header">{cat}</div>
         ))}
         <div>Summe ECTS</div>
       </div>
+
+      <div className="semester-grid-rows"
+          style={{
+          "--cols": categories.length
+        } as React.CSSProperties}
+        >
 
       {semesters.map((semester) => {
         const semesterECTS = categories.reduce((sum, cat) => {
@@ -62,13 +68,17 @@ export function SemesterGrid({ semesters, modules, categories }: Props) {
         );
       })}
 
-      <div className="semester-footer"
+        </div>
+
+
+    </div>
+          <div className="semester-footer"
             style={{"--cols": categories.length} as React.CSSProperties}>
         <div className="semester-grid-total">
           Gesamt: {cumulativeECTS} ECTS
         </div>
       </div>
-    </div>
+      </>
   );
 }
 

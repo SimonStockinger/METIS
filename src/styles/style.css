@@ -24,7 +24,7 @@ body,
   gap: 6px;
   padding: 8px;
   background: #f9f9f9;
-  overflow: hidden;
+  overflow: auto;
 }
 
 
@@ -35,19 +35,16 @@ body,
   background: #f0f0f0;
   border-radius: 6px;
   font-weight: 600;
-
-    overflow-y: auto;
+  width: 100;
+  height: 100%;
 }
 
 /* BOARD */
 .board {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  height: 100%;
   min-height: 0;          
-  overflow-y: auto;
-  flex: 1 1 auto;         
+  flex: 1;         
 }
 
 
@@ -58,7 +55,7 @@ body,
   height: 100%;
   min-height: 0;       
   overflow-y: auto;
-  flex: 1 1 auto;         
+  flex: 1;         
 }
 
 .semester-grid-header {
@@ -68,6 +65,12 @@ body,
   border-bottom: 2px solid #ccc;
   position: sticky;
   top: 0;
+}
+
+.semester-grid-rows {
+  display: inline;
+  border-bottom: 2px solid #ccc;
+  overflow-y: auto;
 }
 
 .semester-row {
@@ -84,6 +87,7 @@ body,
 }
 
 .semester-footer > div{
+    flex-shrink: 0;
   display: grid;
   position: sticky;
   bottom: 0;
@@ -100,31 +104,7 @@ body,
   border-right: 1px solid #ddd;
 }
 
-.category-header {
-  padding: 8px;
-  text-align: center;
-  border-right: 1px solid #ddd;
-}
-
-.semester-cell {
-  padding: 8px;
-  min-height: 60px;
-  border-right: 1px solid #eee;
-  background: #fff;
-  font-weight: 600;
-  background: "#f9f9f9";
-  justify-content: "center";
-}
-
-.semester-cell.is-over {
-  background: #e6f3ff;
-}
-
 /* GRID HEADER */
-
-
-
-
 .semester-label-header,
 .category-header {
   padding: 8px;
@@ -139,26 +119,6 @@ body,
   display: grid;              
   align-items: stretch;
   border-bottom: 1px solid #e0e0e0;
-}
-
-.semester-label {
-  padding: 8px;
-  border-right: 1px solid #ddd;
-  font-weight: 600;
-}
-
-.semester-cell {
-  padding: 8px;
-  min-height: 60px;
-  border-right: 1px solid #eee;
-  background: #fff;
-  display: flex;              
-  flex-direction: column;
-  gap: 6px;
-}
-
-.semester-cell.is-over {
-  background: #e6f3ff;
 }
 
 .semester-label {
