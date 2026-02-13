@@ -121,7 +121,7 @@ function SemesterCell({ semesterId, category, modules, dispatch }: CellProps) {
       className={`semester-cell ${isOver ? "is-over" : ""}`}
     >
       {modules.map((module) => (
-        <ModuleCard key={module.id} module={module} semesterId={semesterId} category={category} dispatch={dispatch}/>
+        <ModuleCard key={module.id} module={module} semesterId={semesterId} categoryStr={category.name} dispatch={dispatch}/>
       ))}
     </div>
   );

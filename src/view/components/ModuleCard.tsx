@@ -1,19 +1,18 @@
 import { useDraggable } from "@dnd-kit/core";
 import type { Module } from "@/model/module";
-import type { Category } from "@/model/category";
 
 type Props = {
   module: Module;
   semesterId: string;
-  category: Category;
+  categoryStr: string;
 
   dispatch: any;
 };
 
-export function ModuleCard({ module, semesterId, category, dispatch }: Props) {
+export function ModuleCard({ module, semesterId, categoryStr, dispatch }: Props) {
   const { attributes, listeners, setNodeRef, transform } = useDraggable({
     id: module.id,
-    data: { moduleId: module.id, from: { semesterId, category } }
+    data: { moduleId: module.id, from: { semesterId, categoryStr } }
   });
 
   const handleDelete = () => {
@@ -43,7 +42,7 @@ export function ModuleCard({ module, semesterId, category, dispatch }: Props) {
       onPointerDown={(e) => e.stopPropagation()}
       onClick={handleDelete}
     >
-    l öschen
+    löschen
     </button>
   </div>
   );

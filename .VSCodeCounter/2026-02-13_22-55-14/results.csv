@@ -1,0 +1,35 @@
+"filename", "language", "TypeScript JSX", "TypeScript", "CSS", "JSON", "comment", "blank", "total"
+"/home/simon/Dev/Projects/METIS/src/App.tsx", "TypeScript JSX", 12, 0, 0, 0, 0, 3, 15
+"/home/simon/Dev/Projects/METIS/src/assets/templates/b-blank.json", "JSON", 0, 0, 0, 47, 0, 0, 47
+"/home/simon/Dev/Projects/METIS/src/assets/templates/b-informatik.json", "JSON", 0, 0, 0, 318, 0, 0, 318
+"/home/simon/Dev/Projects/METIS/src/assets/templates/m-blank.json", "JSON", 0, 0, 0, 35, 0, 0, 35
+"/home/simon/Dev/Projects/METIS/src/controller/persistence/exportStudyPlan.ts", "TypeScript", 0, 19, 0, 0, 0, 7, 26
+"/home/simon/Dev/Projects/METIS/src/controller/persistence/importStudyPlan.ts", "TypeScript", 0, 9, 0, 0, 0, 4, 13
+"/home/simon/Dev/Projects/METIS/src/controller/persistence/studyPlanStorage.ts", "TypeScript", 0, 29, 0, 0, 0, 9, 38
+"/home/simon/Dev/Projects/METIS/src/controller/persistence/validateStudyPlan.ts", "TypeScript", 0, 17, 0, 0, 0, 2, 19
+"/home/simon/Dev/Projects/METIS/src/controller/state/actions.ts", "TypeScript", 0, 22, 0, 0, 0, 2, 24
+"/home/simon/Dev/Projects/METIS/src/controller/state/addModuleFormState.ts", "TypeScript", 0, 2, 0, 0, 0, 2, 4
+"/home/simon/Dev/Projects/METIS/src/controller/state/initialState.ts", "TypeScript", 0, 9, 0, 0, 0, 3, 12
+"/home/simon/Dev/Projects/METIS/src/controller/state/reducer.ts", "TypeScript", 0, 99, 0, 0, 0, 14, 113
+"/home/simon/Dev/Projects/METIS/src/main.tsx", "TypeScript JSX", 9, 0, 0, 0, 0, 3, 12
+"/home/simon/Dev/Projects/METIS/src/model/category.ts", "TypeScript", 0, 4, 0, 0, 0, 0, 4
+"/home/simon/Dev/Projects/METIS/src/model/module.ts", "TypeScript", 0, 6, 0, 0, 0, 2, 8
+"/home/simon/Dev/Projects/METIS/src/model/semester.ts", "TypeScript", 0, 6, 0, 0, 0, 0, 6
+"/home/simon/Dev/Projects/METIS/src/model/studyPlan.ts", "TypeScript", 0, 8, 0, 0, 0, 1, 9
+"/home/simon/Dev/Projects/METIS/src/model/template.ts", "TypeScript", 0, 6, 0, 0, 0, 1, 7
+"/home/simon/Dev/Projects/METIS/src/model/templateEntry.ts", "TypeScript", 0, 4, 0, 0, 0, 1, 5
+"/home/simon/Dev/Projects/METIS/src/styles/footer.css", "CSS", 0, 0, 9, 0, 0, 0, 9
+"/home/simon/Dev/Projects/METIS/src/styles/header.css", "CSS", 0, 0, 43, 0, 0, 8, 51
+"/home/simon/Dev/Projects/METIS/src/styles/style.css", "CSS", 0, 0, 210, 0, 10, 36, 256
+"/home/simon/Dev/Projects/METIS/src/styles/style_backup.css", "CSS", 0, 0, 180, 0, 10, 39, 229
+"/home/simon/Dev/Projects/METIS/src/view/Footer.tsx", "TypeScript JSX", 12, 0, 0, 0, 0, 3, 15
+"/home/simon/Dev/Projects/METIS/src/view/Header.tsx", "TypeScript JSX", 22, 0, 0, 0, 0, 3, 25
+"/home/simon/Dev/Projects/METIS/src/view/StudyPlanner.tsx", "TypeScript JSX", 18, 0, 0, 0, 0, 3, 21
+"/home/simon/Dev/Projects/METIS/src/view/components/ModuleCard.tsx", "TypeScript JSX", 44, 0, 0, 0, 0, 7, 51
+"/home/simon/Dev/Projects/METIS/src/view/components/SemesterGrid.tsx", "TypeScript JSX", 111, 0, 0, 0, 0, 18, 129
+"/home/simon/Dev/Projects/METIS/src/view/components/SemesterRow.tsx", "TypeScript JSX", 64, 0, 0, 0, 0, 11, 75
+"/home/simon/Dev/Projects/METIS/src/view/components/StudyPlanBoard.tsx", "TypeScript JSX", 34, 0, 0, 0, 0, 5, 39
+"/home/simon/Dev/Projects/METIS/src/view/components/StudyPlanBoardToolbar.tsx", "TypeScript JSX", 125, 0, 0, 0, 0, 26, 151
+"/home/simon/Dev/Projects/METIS/src/view/components/StudyPlanTopToolbar.tsx", "TypeScript JSX", 64, 0, 0, 0, 0, 18, 82
+"/home/simon/Dev/Projects/METIS/src/view/components/forms/AddModuleForm.tsx", "TypeScript JSX", 0, 0, 0, 0, 40, 0, 40
+"Total", "-", 515, 240, 442, 400, 60, 231, 1888

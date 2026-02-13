@@ -17,7 +17,7 @@ export type Action =
   | {
       type: "MOVE_MODULE";
       moduleId: string;
-      from: { semesterId: string; category: string };
-      to: { semesterId: string; category: string };
+      from: { semesterId: string; categoryStr: string };
+      to: { semesterId: string; categoryStr: string };
     }
   | { type: "LOAD_STUDY_PLAN"; state: StudyPlanState };

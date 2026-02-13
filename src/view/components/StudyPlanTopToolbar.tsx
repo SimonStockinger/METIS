@@ -53,7 +53,6 @@ const handleTemplateChange = (name: string) => {
   dispatch({ type: "LOAD_STUDY_PLAN", state: tpl.content.plan });
 };
 
-
   return (
     <div>
       <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginBottom: "16px" }}>
