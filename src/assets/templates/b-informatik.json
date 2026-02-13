@@ -226,6 +226,12 @@
         "ects": 4.5,
         "category": "Mathematik"
       },
+      "m-pros": {
+        "id": "m-pros",
+        "name": "Proseminar",
+        "ects": 3,
+        "category": "Wahlbereich"
+      },
       "m-pp": {
         "id": "m-pp",
         "name": "Programmierparadigmen",
