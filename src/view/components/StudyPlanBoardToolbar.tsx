@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { initialState } from "@/controller/state/initialState";
 
-
 type StudyPlanBoardToolbarProbs = {
   state: typeof initialState;
   dispatch: any;
@@ -79,8 +78,8 @@ const [selectedCategory, setSelectedCategory] = useState("");
         <select value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
           <option value="">Kategorie wählen</option>
           {state.categories.map((cat) => (
-            <option key={cat} value={cat}>
-              {cat}
+            <option key={cat.name} value={cat.name}>
+              {cat.name}
             </option>
           ))}
         </select>
@@ -93,21 +92,35 @@ const [selectedCategory, setSelectedCategory] = useState("");
 
 export function AddCategory({ dispatch }: AddCategoryProps) {
     const [newCategoryName, setNewCategoryName] = useState("");
+    const [categoryCredits, setCategoryCredits] = useState("");
 
     const addCategory = () => {
     if (!newCategoryName.trim()) return;
-      dispatch({ type: "ADD_CATEGORY", category: newCategoryName.trim() });
-      setNewCategoryName("");
+      dispatch({
+        type: "ADD_CATEGORY",
+        category: {
+        name: newCategoryName.trim(),
+        credits: categoryCredits.trim()}
+    });
+
+    setNewCategoryName("");
+    setCategoryCredits("");
   };
 
 
   return(
           <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginBottom: "16px" }}>
-                <input
+          <input
             type="text"
             placeholder="Neue Kategorie"
             value={newCategoryName}
             onChange={(e) => setNewCategoryName(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="Credits"
+            value={categoryCredits}
+            onChange={(e) => setCategoryCredits(e.target.value)}
           />
         <button onClick={addCategory}>Kategorie hinzufügen</button>
       </div>

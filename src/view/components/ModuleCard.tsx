@@ -1,10 +1,11 @@
 import { useDraggable } from "@dnd-kit/core";
 import type { Module } from "@/model/module";
+import type { Category } from "@/model/category";
 
 type Props = {
   module: Module;
   semesterId: string;
-  category: string;
+  category: Category;
 
   dispatch: any;
 };
