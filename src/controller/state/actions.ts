@@ -6,7 +6,6 @@ export type Action =
   | { type: "ADD_SEMESTER" }
   | { type: "REMOVE_SEMESTER"; semesterId: string }
   | { type: "ADD_CATEGORY"; category: Category }
-  | { type: "REMOVE_CATEGORY"; category: string }
   | {
       type: "ADD_MODULE";
       module: Module;
@@ -17,7 +16,7 @@ export type Action =
   | {
       type: "MOVE_MODULE";
       moduleId: string;
-      from: { semesterId: string; category: string };
-      to: { semesterId: string; category: string };
+      from: { semesterId: string; categoryStr: string };
+      to: { semesterId: string; categoryStr: string };
     }
   | { type: "LOAD_STUDY_PLAN"; state: StudyPlanState };

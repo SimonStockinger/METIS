@@ -77,7 +77,7 @@ export function studyPlanReducer(
     case "MOVE_MODULE": {
     const { moduleId, to } = action;
 
-    if (!to.semesterId || !to.category) return state;
+    if (!to.semesterId || !to.categoryStr) return state;
 
     return {
       ...state,
@@ -90,8 +90,8 @@ export function studyPlanReducer(
         );
 
         if (s.id === to.semesterId) {
-          cleanedModulesByCategory[to.category] = [
-            ...(cleanedModulesByCategory[to.category] ?? []),
+          cleanedModulesByCategory[to.categoryStr] = [
+            ...(cleanedModulesByCategory[to.categoryStr] ?? []),
             moduleId
           ];
         }
