@@ -32,7 +32,7 @@ function SemesterRow({ semester, modules, categories, dispatch }: Props) {
           <SemesterCell
             key={category.name}
             semesterId={semester.id}
-            category={category}
+            categoryStr={category.name}
             modules={categoryModules}
             dispatch={dispatch}
           />
@@ -48,16 +48,16 @@ function SemesterRow({ semester, modules, categories, dispatch }: Props) {
 
 type CellProps = {
   semesterId: string;
-  category: Category;
+  categoryStr: string;
   modules: Module[];
 
   dispatch: any
 };
 
-function SemesterCell({ semesterId, category, modules, dispatch }: CellProps) {
+function SemesterCell({ semesterId, categoryStr, modules, dispatch }: CellProps) {
   const { setNodeRef, isOver } = useDroppable({
-    id: `${semesterId}-${category}`,
-    data: { semesterId, category }
+    id: `${semesterId}-${categoryStr}`,
+    data: { semesterId, categoryStr }
   });
 
   return (
@@ -66,7 +66,7 @@ function SemesterCell({ semesterId, category, modules, dispatch }: CellProps) {
       className={`semester-cell ${isOver ? "is-over" : ""}`}
     >
       {modules.map((module) => (
-        <ModuleCard key={module.id} module={module} semesterId={semesterId} categoryStr={category.name} dispatch={dispatch} />
+        <ModuleCard key={module.id} module={module} semesterId={semesterId} categoryStr={categoryStr} dispatch={dispatch} />
       ))}
     </div>
   );

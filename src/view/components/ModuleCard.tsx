@@ -37,7 +37,6 @@ export function ModuleCard({ module, semesterId, categoryStr, dispatch }: Props)
     >
     <strong>{module.name}</strong>
     <div>{module.ects} ECTS</div>
-
     <button
       onPointerDown={(e) => e.stopPropagation()}
       onClick={handleDelete}

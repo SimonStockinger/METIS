@@ -6,7 +6,6 @@ export type Action =
   | { type: "ADD_SEMESTER" }
   | { type: "REMOVE_SEMESTER"; semesterId: string }
   | { type: "ADD_CATEGORY"; category: Category }
-  | { type: "REMOVE_CATEGORY"; category: string }
   | {
       type: "ADD_MODULE";
       module: Module;
