@@ -74,6 +74,14 @@ export function studyPlanReducer(
       };
     };
 
+    case "CHECK_MODULE": {
+      const { moduleId } = action;
+
+      return
+      ;
+
+    };
+
     case "MOVE_MODULE": {
     const { moduleId, to } = action;
 

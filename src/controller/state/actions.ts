@@ -19,4 +19,5 @@ export type Action =
       from: { semesterId: string; categoryStr: string };
       to: { semesterId: string; categoryStr: string };
     }
-  | { type: "LOAD_STUDY_PLAN"; state: StudyPlanState };
+  | { type: "LOAD_STUDY_PLAN"; state: StudyPlanState }
+  | { type: "CHECK_MODULE"; moduleId: string; }

@@ -3,5 +3,6 @@ export type Module = {
   name: string;
   ects: number;
   category: string;
+  passed: false;
 };
 

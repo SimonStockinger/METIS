@@ -23,6 +23,15 @@ export function ModuleCard({ module, semesterId, categoryStr, dispatch }: Props)
     })
   };
 
+    const handleCheck = () => {
+    console.log("Check")
+    dispatch({
+      type: "CHECK_MODULE",
+      moduleId: module.id
+    })
+  };
+
+
   return (
     <div
     ref={setNodeRef}
@@ -37,12 +46,21 @@ export function ModuleCard({ module, semesterId, categoryStr, dispatch }: Props)
     >
     <strong>{module.name}</strong>
     <div>{module.ects} ECTS</div>
+    <div>
+
     <button
       onPointerDown={(e) => e.stopPropagation()}
       onClick={handleDelete}
     >
     löschen
     </button>
+        <button
+      onPointerDown={(e) => e.stopPropagation()}
+      onClick={handleDelete}
+    >
+    +
+    </button>
+    </div>
   </div>
   );
 }
