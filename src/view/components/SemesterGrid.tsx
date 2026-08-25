@@ -68,7 +68,7 @@ export function SemesterGrid({ semesters, modules, categories, dispatch }: Props
                 <SemesterCell
                   key={cat.name}
                   semesterId={semester.id}
-                  category={cat}
+                  categoryStr={cat.name}
                   modules={moduleIds.map((id) => modules[id])}
                   dispatch={dispatch}
                 />
@@ -102,17 +102,17 @@ export function SemesterGrid({ semesters, modules, categories, dispatch }: Props
 
 type CellProps = {
   semesterId: string;
-  category: Category;
+  categoryStr: string;
   modules: Module[];
   
   dispatch: any
 
 };
 
-function SemesterCell({ semesterId, category, modules, dispatch }: CellProps) {
+function SemesterCell({ semesterId, categoryStr, modules, dispatch }: CellProps) {
   const { setNodeRef, isOver } = useDroppable({
-    id: `${semesterId}-${category}`,
-    data: { semesterId, category }
+    id: `${semesterId}-${categoryStr}`,
+    data: { semesterId, categoryStr }
   });
 
   return (
@@ -121,7 +121,7 @@ function SemesterCell({ semesterId, category, modules, dispatch }: CellProps) {
       className={`semester-cell ${isOver ? "is-over" : ""}`}
     >
       {modules.map((module) => (
-        <ModuleCard key={module.id} module={module} semesterId={semesterId} category={category} dispatch={dispatch}/>
+        <ModuleCard key={module.id} module={module} semesterId={semesterId} categoryStr={categoryStr} dispatch={dispatch}/>
       ))}
     </div>
   );

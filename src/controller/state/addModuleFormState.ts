@@ -1,3 +1,1 @@
-export type AddModuleFormState = {
-
-};
+export type AddModuleFormState = {};

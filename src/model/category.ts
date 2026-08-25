@@ -1,4 +1,5 @@
 export type Category = {
-  name: string;
-  credits: string;
+    name: string;
+    credits: string;
+    currCreddits: string;
 };
