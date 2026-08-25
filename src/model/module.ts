@@ -1,8 +1,7 @@
 export type Module = {
-  id: string;
-  name: string;
-  ects: number;
-  category: string;
-  passed: false;
+    id: string;
+    name: string;
+    ects: number;
+    category: string;
+    passed: boolean;
 };
-
