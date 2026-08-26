@@ -1,0 +1,45 @@
+{
+    "version": 2,
+    "updatedAt": "2026-01-08T10:44:28.066Z",
+    "plan": {
+        "categories": [],
+        "semesters": [
+            {
+                "id": "sem‑1",
+                "label": "Semester 1",
+                "order": 1,
+                "modulesByCategory": {}
+            },
+            {
+                "id": "sem‑2",
+                "label": "Semester 2",
+                "order": 2,
+                "modulesByCategory": {}
+            },
+            {
+                "id": "sem‑3",
+                "label": "Semester 3",
+                "order": 3,
+                "modulesByCategory": {}
+            },
+            {
+                "id": "sem‑4",
+                "label": "Semester 4",
+                "order": 4,
+                "modulesByCategory": {}
+            },
+            {
+                "id": "sem‑5",
+                "label": "Semester 5",
+                "order": 5,
+                "modulesByCategory": {}
+            },
+            {
+                "id": "sem‑6",
+                "label": "Semester 6",
+                "order": 6,
+                "modulesByCategory": {}
+            }
+        ]
+    }
+}

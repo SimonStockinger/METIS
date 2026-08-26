@@ -1,151 +1,70 @@
 import { useState } from "react";
 import { initialState } from "@/controller/state/initialState";
+import { Modal } from "@/view/components/forms/Modal";
+import { AddModuleForm } from "@/view/components/forms/AddModuleForm";
+import { AddCategoryForm } from "@/view/components/forms/AddCategoryForm";
 
 type StudyPlanBoardToolbarProbs = {
-  state: typeof initialState;
-  dispatch: any;
-};
-
-
-type AddModuleProps = {
-  state: typeof initialState;
-  dispatch: any;
-};
-
-  type AddCategoryProps = {
-  dispatch: any;
+    state: typeof initialState;
+    dispatch: any;
 };
 
 type AddSemesterProps = {
-  dispatch: any;
+    dispatch: any;
 };
-
-export function AddModule({ state, dispatch }: AddModuleProps) {
-const [moduleName, setModuleName] = useState("");
-const [moduleECTS, setModuleECTS] = useState<number>(0);
-const [selectedSemesterId, setSelectedSemesterId] = useState("");
-const [selectedCategory, setSelectedCategory] = useState("");
-
-  const handleAddModule = () => {
-      if (!moduleName || !selectedSemesterId || !selectedCategory) return;
-  
-      const id = `${moduleName}-${selectedSemesterId}-${selectedCategory}-${Date.now()}`;
-  
-      dispatch({
-        type: "ADD_MODULE",
-        module: {
-          id,
-          name: moduleName,
-          ects: moduleECTS,
-          category: selectedCategory
-        },
-        semesterId: selectedSemesterId,
-        category: selectedCategory
-      });
-  
-      setModuleName("");
-      setModuleECTS(0);
-      setSelectedSemesterId("");
-      setSelectedCategory("");
-  };
-
-
-  return(
-    <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginBottom: "16px" }}>
-          <input
-          type="text"
-          placeholder="Modul Name"
-          value={moduleName}
-          onChange={(e) => setModuleName(e.target.value)}
-        />
-
-        <input
-          type="number"
-          placeholder="ECTS"
-          value={moduleECTS}
-          onChange={(e) => setModuleECTS(Number(e.target.value))}
-        />
-
-        <select value={selectedSemesterId} onChange={(e) => setSelectedSemesterId(e.target.value)}>
-          <option value="">Semester wählen</option>
-          {state.semesters.map((sem) => (
-            <option key={sem.id} value={sem.id}>
-              {sem.label}
-            </option>
-          ))}
-
-        </select>
-        <select value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
-          <option value="">Kategorie wählen</option>
-          {state.categories.map((cat) => (
-            <option key={cat.name} value={cat.name}>
-              {cat.name}
-            </option>
-          ))}
-        </select>
-
-        <button onClick={handleAddModule}>Modul hinzufügen</button>
-        </div>
-  );
-};
-
-
-export function AddCategory({ dispatch }: AddCategoryProps) {
-    const [newCategoryName, setNewCategoryName] = useState("");
-    const [categoryCredits, setCategoryCredits] = useState("");
-
-    const addCategory = () => {
-    if (!newCategoryName.trim()) return;
-      dispatch({
-        type: "ADD_CATEGORY",
-        category: {
-        name: newCategoryName.trim(),
-        credits: categoryCredits.trim()}
-    });
-
-    setNewCategoryName("");
-    setCategoryCredits("");
-  };
-
-
-  return(
-          <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginBottom: "16px" }}>
-          <input
-            type="text"
-            placeholder="Neue Kategorie"
-            value={newCategoryName}
-            onChange={(e) => setNewCategoryName(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="Credits"
-            value={categoryCredits}
-            onChange={(e) => setCategoryCredits(e.target.value)}
-          />
-        <button onClick={addCategory}>Kategorie hinzufügen</button>
-      </div>
-  );
-}
 
 export function AddSemester({ dispatch }: AddSemesterProps) {
-  return (
-  <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginBottom: "16px" }}>
-    <button onClick={() => dispatch({ type: "ADD_SEMESTER" })}>
-      Semester hinzufügen
-      </button>
-    </div>
-  );
-};
+    return (
+        <div className="toolbar-row">
+            <button onClick={() => dispatch({ type: "ADD_SEMESTER" })}>
+                Semester hinzufügen
+            </button>
+        </div>
+    );
+}
 
+function StudyPlanBoardToolbar({
+    state,
+    dispatch,
+}: StudyPlanBoardToolbarProbs) {
+    const [isAddModuleOpen, setIsAddModuleOpen] = useState(false);
+    const [isAddCategoryOpen, setIsAddCategoryOpen] = useState(false);
 
-function StudyPlanBoardToolbar({state, dispatch}: StudyPlanBoardToolbarProbs) {
-  return (
-    <div>
-      <AddModule state={state} dispatch={dispatch} />
-      <AddCategory dispatch={dispatch} />
-      <AddSemester dispatch={dispatch} />
-    </div>
-  );
+    return (
+        <div className="toolbar-row">
+            <button type="button" onClick={() => setIsAddModuleOpen(true)}>
+                + Modul hinzufügen
+            </button>
+            <button type="button" onClick={() => setIsAddCategoryOpen(true)}>
+                + Kategorie hinzufügen
+            </button>
+
+            <AddSemester dispatch={dispatch} />
+
+            <Modal
+                isOpen={isAddModuleOpen}
+                onClose={() => setIsAddModuleOpen(false)}
+                title="Neues Modul"
+            >
+                <AddModuleForm
+                    state={state}
+                    dispatch={dispatch}
+                    onSuccess={() => setIsAddModuleOpen(false)}
+                />
+            </Modal>
+
+            <Modal
+                isOpen={isAddCategoryOpen}
+                onClose={() => setIsAddCategoryOpen(false)}
+                title="Neue Kategorie"
+            >
+                <AddCategoryForm
+                    dispatch={dispatch}
+                    onSuccess={() => setIsAddCategoryOpen(false)}
+                />
+            </Modal>
+        </div>
+    );
 }
 
 export default StudyPlanBoardToolbar;
