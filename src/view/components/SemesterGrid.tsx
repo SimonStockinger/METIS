@@ -3,7 +3,7 @@ import type { Semester } from "@/model/semester";
 import type { Module } from "@/model/module";
 import { ModuleCard } from "./ModuleCard";
 import type { Category } from "@/model/category";
-import type { CountMode } from "./CountModeToggle";
+import type { CountMode } from "./assets/CountModeToggle";
 
 type Props = {
     semesters: Semester[];
