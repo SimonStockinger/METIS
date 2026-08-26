@@ -5,20 +5,30 @@ function Header() {
         <header className="header">
             <div className="header-content">
                 <h1 className="logo">
-                    <a href="https://en.wikipedia.org/wiki/Metis_(mythology)" target="_blank" rel="noopener noreferrer">
+                    <a
+                        href="https://en.wikipedia.org/wiki/Metis_(mythology)"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
                         METIS
                     </a>
                 </h1>
                 <nav>
                     <ul className="nav-links">
-                        <li><a href="#">Info</a></li>
-                        <li><a href="https://github.com/simonstockinger/METIS" target="_blank" rel="noopener noreferrer">Github</a></li>
-                        <li><a href="#">Kontakt</a></li>
+                        <li>
+                            <a
+                                href="https://github.com/simonstockinger/METIS"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Github
+                            </a>
+                        </li>
                     </ul>
                 </nav>
             </div>
         </header>
     );
-};
+}
 
 export default Header;
